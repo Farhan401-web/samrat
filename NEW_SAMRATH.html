@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>New Samrat Gym</title>
+    <style>
+     @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;600&display=swap');
+
+    /* Reset */
+    *, *::before, *::after {
+      box-sizing: border-box;
+    }
+    body, html {
+      margin: 0; padding: 0;
+      min-height: 100%;
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #004e92, #000428);
+      color: #f0f0f0;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      scroll-behavior: smooth;
+      max-width: 100%;
+     
+    }
+       a {
+      color: #00d2ff;
+      text-decoration: none;
+    }
+      a:hover, a:focus {
+      text-decoration: underline;
+    }
+    header{
+      position: relative;
+       height: 50vh;
+         background: url('https://images.unsplash.com/photo-1517836357463-d25dfeac3438?auto=format&fit=crop&w=1400&q=90') center/cover no-repeat;/*link for background image*/
+         display: flex;
+         align-items: center;
+         justify-content: center;
+            color: #fff;
+            padding: 0 1rem;
+    }
+    header::before{
+      content: "";
+      position: absolute;
+      inset: 0;  
+       background: rgba(0, 4, 40, 0.8);  
+       z-index: 0;
+    }
+    header h1{
+      position: relative;
+      font-size: 3.5rem;
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.7);
+      max-width: 90vw;
+      margin: 0 auto;
+      z-index: 1;
+      text-align: center;
+    }
+    main{
+      max-width: 900px;
+         background: rgba(0, 0, 0, 0.6);
+      margin: -4rem auto 3rem auto;
+      border-radius: 20px;
+      padding: 2rem 2.5rem;
+       box-shadow: 0 12px 28px rgba(0, 210, 255, 0.4);
+      backdrop-filter: saturate(150%) blur(15px);/*it will create a div for about and all */
+         color: #e0e0e0;
+         animation: fadeInup 1s ease forwards;
+    }
+     section {
+      margin-bottom: 3rem; /*it will create distance between them*/
+    }
+    h2{
+      font-size: 2rem;
+       color: #00c6ff;
+      font-weight: 700;
+      margin-bottom: 2rem;
+          border-bottom: 3px solid #00c6ff;
+          padding-bottom: 0.3rem;
+          text-transform: uppercase;                  /*it will make all text capital*/
+    letter-spacing: 1.3px;
+    max-width: fit-content;                             /*it will put line only under the h2 text*/
+    }
+    p,ul{
+      font-size: 1.3rem;                                       /*it will cuntrole the size of text*/
+      line-height: 1.7;                                      /*this will add distance between lines */  
+      font-weight: 300;
+      margin: 12px auto 0 auto;
+      user-select: text;
+    }
+    ul{
+      list-style: none;
+      padding-left: 0;
+    }
+    ul li{
+      position: relative;
+      padding-left: 1.6rem;
+      margin-bottom: 1rem;
+      font-weight: 400;
+    }
+    ul li::before{
+      content: '✔';                                      /*this will bring tick mark before list */
+      color: #00c6ff;
+      position: absolute;
+      left: 0;
+      top: 0;
+      font-weight: 700;
+    }
+                                             /* timing */
+       .timings {
+      background: #00c6ff;
+      color: #000b12;
+      border-radius: 15px;
+      padding: 1.4rem 2rem;
+      max-width: 320px;
+      font-weight: 600;
+      box-shadow: 0 6px 18px rgba(0, 198, 255, 0.5);
+    }
+    .gallery {
+      display: grid;                                           /* it will make images from row to column*/
+       grid-template-columns: repeat(auto-fit,minmax(220px,1fr));
+       gap: 1.3rem;
+    }
+    .gallery img {
+      width: 100%;
+      border-radius: 16px;
+      box-shadow: 0 6px 20px rgba(0, 198, 255, 0.45);  /* it will add background to image */
+      object-fit: cover;
+      cursor: pointer;
+         transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+     .gallery img:hover,
+    .gallery img:focus {
+      translate: scale(1.05);
+       box-shadow: 0 10px 26px rgba(0, 198, 255, 0.85);  /* it will add background color hover */
+       z-index: 2;
+       outline: none;
+    }
+     .videos {
+      display: grid;
+         grid-template-columns: repeat(auto-fit,minmax(280px,1fr));
+      gap: 1.0rem;
+        }
+         .video-wrapper {
+          position: relative;
+          padding: 56.25%;
+          border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 6px 20px rgba(0, 198, 255, 0.45);
+      background: #000;
+         }
+           .video-wrapper iframe,
+    .video-wrapper video {
+      position: absolute;
+      top: 0;left: 0;
+      width: 100%;      height: 100%;
+       border: none;
+      border-radius: 15px;
+    }
+       footer {
+      text-align: center;
+      padding: 1rem 0;
+      background: #00051a;
+      font-size: 0.95rem;
+      color: #999;
+      user-select: text;
+    }
+ @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(25px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive typography and spacing */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.8rem;
+      }
+      main {
+        margin: -3rem 1rem 2rem 1rem;
+        padding: 1.5rem 1.8rem;
+      }
+      h2 {
+        font-size: 1.6rem;
+      }
+    }
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 2.2rem;
+        letter-spacing: 2px;
+      }
+      main {
+        margin: -2rem 1rem 1rem 1rem;
+        padding: 1.2rem 1.2rem;
+      }
+      h2 {
+        font-size: 1.4rem;
+      }
+      ul li {
+        font-size: 1rem;
+      }
+      p {
+        font-size: 1rem;
+      }
+    }
+     @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@500&display=swap');
+
+  
+  .back-button {
+    display: inline-flex;
+    align-items: center;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: #fff;
+    font-family: 'Playfair Display', serif;
+    /* font-size: 1.3rem; */
+    /* font-weight: 700; */
+     padding: 16px 40px;
+    border-radius: 50px; 
+    border: none;
+    box-shadow: 0 8px 15px rgba(118, 75, 162, 0.6);
+    cursor: pointer;
+    user-select: none;
+    transition: all 0.3s ease;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+  }
+
+  .back-button:hover {
+    background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+    box-shadow: 0 12px 25px rgba(102, 126, 234, 0.8);
+    transform: scale(1.05);
+  }
+
+  .back-button:active {
+    transform: scale(0.95);
+    box-shadow: 0 6px 12px rgba(102, 126, 234, 0.5);
+  }
+
+  /* Stylish left arrow icon using CSS */
+  .back-button::before {
+    content: '';
+    display: inline-block;
+    margin-right: 18px;
+    width: 14px;
+    height: 14px;
+    border-top: 3px solid #fff;
+    border-left: 3px solid #fff;
+    transform: rotate(-45deg);
+    transition: border-color 0.3s ease;
+  }
+
+  .back-button:hover::before {
+    border-color: #dcd3f5;
+  }
+    </style>
+</head>
+  <header>
+    <!-- <a href="../FUTURE.HTML"><button class="back-button" onclick="goBack()" aria-label="Go back to previous page">Back</button></a> -->
+
+    <h1 style="height: 30%;">Samrat Gym</h1>
+  </header>
+  <main>
+    <section>
+          <h2>About Us</h2>
+           <p>
+        Samrat Gym is your premier fitness destination offering cutting-edge equipment, expert trainers, and tailored workout plans to help you achieve your goals with confidence. <br>
+(सम्राट जिम आपका प्रमुख फिटनेस गंतव्य है जो आपको आत्मविश्वास के साथ अपने लक्ष्यों को प्राप्त करने में मदद करने के लिए अत्याधुनिक उपकरण, विशेषज्ञ प्रशिक्षक और अनुरूपित कसरत योजनाएं प्रदान करता है।)      
+</p>
+    </section>
+    <section aria-lable="owner of gym">
+
+       <h2>owner of Gym</h2>
+      <p>
+      Swapnil Gopal Tantarpale (Sir) has a national player in body building , and has a gold medal in pcmc Shri , Pune shree gold medal  2012, silver medal in Maharashtra 2014 and top six in MR.India in 2014
+      </p>
+    </section>
+    <section aria-label="Service Offered">
+        <h2>Services</h2>
+        <ul>
+       <li>Personalized Training Programs . <br> (व्यक्तिगत प्रशिक्षण कार्यक्रम)</li>
+        <li>Group Classes: Yoga, HIIT, Zumba & Pilates . <br>(समूह कक्षाएं: योग, HIIT, ज़ुम्बा और पिलेट्स)</li>
+        <li>Strength & Cardio Equipment . <br>(शक्ति और कार्डियो उपकरण)</li>
+        <li>Nutrition & Wellness Coaching . <br>(पोषण एवं स्वास्थ्य कोचिंग)</li>
+        <li>Locker Rooms with Sauna & Spa . <br>(सॉना और स्पा के साथ लॉकर रूम)</li>
+        </ul>
+    </section>
+    <section  aria-label="Gym Photo Gallery">
+       <h2>Gallery</h2>
+      <div class="gallery" role="list">
+        <img src="./sam_gym_1.jpg" alt="Person lifting weights in gym" role="listitem" tabindex="0"/>
+        <img src="./sam_gym2.jpg" alt="Treadmills and cardio area" role="listitem" tabindex="0"/>
+        <img src="./sam_gym3.jpg" alt="Gym equipment close-up" role="listitem" tabindex="0"/>
+        <img src="./sam_gym4.jpg" alt="Trainer guiding client" role="listitem" tabindex="0"/>
+          <img src="./sir_img.jpg" alt="Trainer guiding client" role="listitem" tabindex="0"/>
+      </div>
+    </section>
+      <section aria-label="Workout Videos">
+      <h2>Workout Videos</h2>
+      <div class="videos">
+       <video  style="height:400px;width: 100%; border-radius:20px;" controls>
+  <source src="./WhatsApp Video 2025-06-05 at 9.26.17 PM.mp4" type="video/mp4">
+       </video><br>
+        <video  style="height:400px;width: 100%; border-radius: 20px;" controls>
+  <source src="./WhatsApp Video 2025-06-05 at 9.27.36 PM.mp4" type="video/mp4">
+       </video>
+ </section>
+  <section aria-label="Gym Opening Hours">
+      <h2>Opening Hours</h2>
+      <div class="timings" role="list">
+        <p role="listitem"><strong>Monday - Saturday:</strong><br> 5:30 AM - 10:00 PM</p>
+        <!-- <p role="listitem"><strong>Saturday:</strong> 7:00 AM - 8:00 PM</p> -->
+        <p role="listitem"><strong>Sunday:</strong> Closed</p>
+      </div>
+    </section>
+
+    <section aria-label="Contact Information">
+      <h2>Contact Us</h2>
+      <p>Email: <a href="Swapniltantarpale269@gmail.com">Swapniltantarpale269@gmail.com</a></p>
+      <p>Phone: <a href="tel:+91 70388 90281">+91 70388 90281</a></p>
+      <p>Address: Samrat Gym & Fitness, yash appartment, first floor, Pune-Mumbai Road, Dehuroad-412101</p>
+    </section>
+  </main>
+  <footer>
+    &copy; 2025 Samrat Gym - All rights reserved.
+  </footer>
+  </main>
+</html>
